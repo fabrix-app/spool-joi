@@ -1,6 +1,6 @@
 {
   "name": "@fabrix/spool-joi",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Spool: joi for Fabrix as a validation spool",
   "homepage": "https://fabrix.app",
   "author": {
