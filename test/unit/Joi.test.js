@@ -20,18 +20,18 @@ describe('Validator', () => {
         a: joi.boolean().valid(true)
       })
     )
-    global.app.validator.validate(data, schema, (err, value) => {
-      if (err) {
-        done(err)
-      }
-      done()
-    })
+    const {value, error} = schema.validate(data)
+    if (error) {
+      done(error)
+    }
+    done()
   })
 
   it('should validate with callback', (done) => {
     const data = 'key'
 
     const joi = global.app.validator
+
     const schema = joi.alternatives().try(
       joi.string().valid('key'),
       joi.number().valid(5),
@@ -52,6 +52,7 @@ describe('Validator', () => {
     const data = 'key'
 
     const joi = global.app.validator
+
     const schema = joi.alternatives().try(
       joi.string().valid('key'),
       joi.number().valid(5),

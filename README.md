@@ -11,6 +11,8 @@
 
 A Spool to extend Fabrix with a unified validator for use in other spools and applications.
 
+[Joi](https://hapi.dev/family/joi/) is the most powerful validator for javascript, and making it a spool make it easy to use the same joi validator module in all of your other spools and applications.
+
 ## Install
 ```sh
 $ npm install --save @fabrix/spool-joi

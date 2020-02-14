@@ -1,5 +1,5 @@
 import { FabrixApp } from '@fabrix/fabrix'
-import Joi from 'joi'
+import Joi from '@hapi/joi'
 
 import { joiConfigSchema } from './schemas'
 import { JoiSpool } from './JoiSpool'
@@ -18,14 +18,7 @@ export const Utils = {
    * @param schema
    */
   joiPromise: (app: FabrixApp | JoiSpool, joi: Joi, data: any, schema: Joi.ObjectSchema): Promise<any> => {
-    return new Promise((resolve, reject) => {
-      joi.validate(data, schema, (err, value) => {
-        if (err) {
-          return reject(err)
-        }
-        return resolve(value)
-      })
-    })
+    return schema.validateAsync(data)
   },
 
   /**

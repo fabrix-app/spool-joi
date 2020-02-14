@@ -1,5 +1,5 @@
 import { ExtensionSpool } from '@fabrix/fabrix/dist/common/spools/extension'
-import Joi from 'joi'
+import Joi from '@hapi/joi'
 import { isArray } from 'lodash'
 import { Utils } from './Utils'
 
@@ -68,7 +68,7 @@ export class JoiSpool extends ExtensionSpool {
       return Utils.joiPromise(this, this.validator, data, schema)
     }
     else if (callback) {
-      const { error, value } = this.validator.validate(data, schema)
+      const { error, value } = schema.validate(data) // this.validator.validate(data, schema)
       return callback(error, value)
     }
     else {
