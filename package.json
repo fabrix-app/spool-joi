@@ -35,12 +35,11 @@
   "pre-commit": [
     "test"
   ],
-  "dependencies": {
-    "@hapi/joi": "^17.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@fabrix/fabrix": "^1.6.3",
     "@fabrix/lint": "^1.0.0-alpha.3",
+    "@hapi/joi": "^17.1.0",
     "@types/node": "~12.7.9",
     "mocha": "^6.2.1",
     "nyc": "^14.1.1",

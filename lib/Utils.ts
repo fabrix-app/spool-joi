@@ -18,7 +18,24 @@ export const Utils = {
    * @param schema
    */
   joiPromise: (app: FabrixApp | JoiSpool, joi: Joi, data: any, schema: Joi.ObjectSchema): Promise<any> => {
-    return schema.validateAsync(data)
+    return new Promise((resolve, reject) => {
+      if (schema.validate) {
+
+        const { value, error } = schema.validate(data)
+        if (error) {
+          return reject(error)
+        }
+        return resolve(value)
+      }
+      else {
+        joi.validate(data, schema, (err, value) => {
+          if (err) {
+            return reject(err)
+          }
+          return resolve(value)
+        })
+      }
+    })
   },
 
   /**
