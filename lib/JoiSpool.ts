@@ -68,8 +68,16 @@ export class JoiSpool extends ExtensionSpool {
       return Utils.joiPromise(this, this.validator, data, schema)
     }
     else if (callback) {
-      const { error, value } = schema.validate(data) // this.validator.validate(data, schema)
-      return callback(error, value)
+      // If new version of joi
+      if (schema.validate) {
+        const {error, value} = schema.validate(data) // this.validator.validate(data, schema)
+        return callback(error, value)
+      }
+      // If older version of joi
+      else {
+        const {error, value} = this.validator.validate(data, schema)
+        return callback(error, value)
+      }
     }
     else {
       throw new Error('Not valid arguments')

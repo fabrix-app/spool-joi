@@ -20,7 +20,6 @@ export const Utils = {
   joiPromise: (app: FabrixApp | JoiSpool, joi: Joi, data: any, schema: Joi.ObjectSchema): Promise<any> => {
     return new Promise((resolve, reject) => {
       if (schema.validate) {
-
         const { value, error } = schema.validate(data)
         if (error) {
           return reject(error)
