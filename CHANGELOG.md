@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3](https://github.com/fabrix-app/spool-joi/compare/v1.6.2...v1.6.3) (2020-07-01)
+
+
+### Features
+
+* support new version of joi in extension ([7dc3213](https://github.com/fabrix-app/spool-joi/commit/7dc3213))
+
 ### [1.6.2](https://github.com/fabrix-app/spool-joi/compare/v1.6.1...v1.6.2) (2020-02-15)
 
 
